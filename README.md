@@ -26,7 +26,7 @@
 | Aspect | Without This Tool | With This Tool |
 |--------|-------------------|----------------|
 | **Status accuracy** | ~70% (Nessus false positives) | ~95% (AI-verified) |
-| **Manual validation** | 4-8 hours per server | 0 minutes (automated) |
+| **Manual validation** | 20-25hours per server | 30 minutes (automated) |
 | **Evidence trail** | None | Full command + output + reasoning |
 | **Report format** | Raw CSV | Company-branded Excel |
 
@@ -82,8 +82,18 @@ pip install -r requirements.txt
 ### 3. Set Your API Key
 
 ```powershell
+# Set your OpenAI API key
 setx OPENAI_API_KEY "sk-proj-your-key-here"
+
+# If using a custom endpoint (Azure OpenAI, proxy, etc.), also set the base URL:
+setx OPENAI_BASE_URL "https://your-custom-endpoint.com/v1"
+
 # Restart your terminal after this!
+```
+
+Alternatively, pass the base URL directly via command line:
+```powershell
+python windows_cis_compliance_ai_agent.py ... --api-base "https://your-custom-endpoint.com/v1"
 ```
 
 ### 4. Run the Agent
@@ -121,6 +131,7 @@ usage: windows_cis_compliance_ai_agent.py [-h] -i INPUT -t TEMPLATE -o OUTPUT
 | `--validate` | Enable AI validation | Disabled |
 | `--add-evidence` | Add validation evidence columns | Disabled |
 | `--model` | OpenAI model to use | `gpt-4o-mini` |
+| `--api-base` | Custom API base URL (Azure, proxy) | Auto from env |
 | `--limit` | Max findings to process (0 = all) | `0` |
 | `--skip` | Skip first N findings | `0` |
 | `--benchmark` | CIS benchmark name prefix | `CIS Microsoft Windows Server 2022...` |

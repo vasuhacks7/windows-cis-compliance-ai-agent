@@ -14,11 +14,21 @@ The **Windows CIS Compliance AI Agent** is a tool that converts Nessus CIS compl
 2. Export → Choose **CSV** format
 3. Save the file (e.g., `windows_2022_cis.csv`)
 
-### Step 2: Set API Key (One-Time)
+### Step 2: Set API Key & Base URL (One-Time)
 
 ```powershell
+# Set your OpenAI API key
 setx OPENAI_API_KEY "sk-proj-your-key-here"
+
+# If using a custom endpoint (Azure OpenAI, proxy, etc.), also set the base URL:
+setx OPENAI_BASE_URL "https://your-custom-endpoint.com/v1"
+
 # RESTART your terminal after setting the key!
+```
+
+Or pass the base URL directly via `--api-base`:
+```powershell
+python windows_cis_compliance_ai_agent.py ... --api-base "https://your-custom-endpoint.com/v1"
 ```
 
 ### Step 3: Test with 5 Findings

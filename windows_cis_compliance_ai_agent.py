@@ -1083,6 +1083,10 @@ def main():
         "--parallel", type=int, default=0,
         help="Number of concurrent findings to process (0=sequential). Requires --validate."
     )
+    parser.add_argument(
+        "--api-base", default=None,
+        help="Custom OpenAI API base URL (or set OPENAI_BASE_URL env var). For Azure OpenAI or proxy endpoints."
+    )
 
     args = parser.parse_args()
 
@@ -1113,7 +1117,13 @@ def main():
             sys.exit(1)
 
         # Gap 8: Create client once
-        client = OpenAI(api_key=api_key)
+        # Support custom base URL (Azure OpenAI, proxy, etc.)
+        base_url = args.api_base or os.getenv("OPENAI_BASE_URL")
+        if base_url:
+            client = OpenAI(api_key=api_key, base_url=base_url)
+            logger.info("API Base URL: %s", base_url)
+        else:
+            client = OpenAI(api_key=api_key)
 
         logger.info("LLM Model: %s", args.model)
         # Gap 11: Fully mask API key
