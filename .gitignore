@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs
+*.log
+
+# Output files (user-generated reports)
+*.xlsx
+!samples/template.xlsx
+
+# Checkpoint files
+*.checkpoint.json
+
+# API Keys - NEVER commit these
+.env
+*.env
+
+# Security policy exports
+secpol_check.inf
