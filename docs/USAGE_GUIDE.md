@@ -28,13 +28,13 @@ setx OPENAI_BASE_URL "https://your-custom-endpoint.com/v1"
 
 Or pass the base URL directly via `--api-base`:
 ```powershell
-python windows_cis_compliance_ai_agent.py ... --api-base "https://your-custom-endpoint.com/v1"
+python agent.py ... --api-base "https://your-custom-endpoint.com/v1"
 ```
 
 ### Step 3: Test with 5 Findings
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i windows_2022_cis.csv `
   -t samples/template.xlsx `
   -o test_report.xlsx `
@@ -51,7 +51,7 @@ Open `test_report.xlsx` and verify the results look correct.
 ### Step 5: Full Run
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i windows_2022_cis.csv `
   -t samples/template.xlsx `
   -o final_report.xlsx `
@@ -67,7 +67,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Mode 1: Format Only (No AI)
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx --only-failed
 ```
 
@@ -78,7 +78,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Mode 2: AI Validation
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate
 ```
@@ -90,7 +90,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Mode 3: AI Validation + Evidence
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --add-evidence
 ```
@@ -137,7 +137,7 @@ python windows_cis_compliance_ai_agent.py `
 
 ```powershell
 # Skip first 50, process next 25
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --skip 50 --limit 25
 ```
@@ -146,7 +146,7 @@ python windows_cis_compliance_ai_agent.py `
 
 ```powershell
 # If the scan was interrupted (network error, API timeout, etc.)
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --resume
 ```
@@ -154,7 +154,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Dry-Run Mode (Preview Only)
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --dry-run
 ```
@@ -162,7 +162,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Save Logs to File
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --log-file scan_log.txt --verbose
 ```
@@ -171,7 +171,7 @@ python windows_cis_compliance_ai_agent.py `
 
 ```powershell
 # Use GPT-4o (more accurate, slower, ~10x cost)
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate --model gpt-4o
 ```
@@ -179,7 +179,7 @@ python windows_cis_compliance_ai_agent.py `
 ### Custom CIS Benchmark Name
 
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i scan.csv -t samples/template.xlsx -o report.xlsx `
   --only-failed --validate `
   --benchmark "CIS Microsoft Windows Server 2019 Stand-alone v2.0.0 L1"
@@ -192,7 +192,7 @@ $servers = @("dc01", "web01", "db01", "app01")
 
 foreach ($server in $servers) {
     Write-Host "Processing $server..."
-    python windows_cis_compliance_ai_agent.py `
+    python agent.py `
       -i "scans\${server}_scan.csv" `
       -t samples/template.xlsx `
       -o "reports\${server}_report.xlsx" `

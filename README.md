@@ -93,17 +93,17 @@ setx OPENAI_BASE_URL "https://your-custom-endpoint.com/v1"
 
 Alternatively, pass the base URL directly via command line:
 ```powershell
-python windows_cis_compliance_ai_agent.py ... --api-base "https://your-custom-endpoint.com/v1"
+python agent.py ... --api-base "https://your-custom-endpoint.com/v1"
 ```
 
 ### 4. Run the Agent
 
 ```powershell
 # Basic: Format only (no AI validation)
-python windows_cis_compliance_ai_agent.py -i nessus_scan.csv -t samples/template.xlsx -o report.xlsx --only-failed
+python agent.py -i nessus_scan.csv -t samples/template.xlsx -o report.xlsx --only-failed
 
 # Full: With AI validation + evidence
-python windows_cis_compliance_ai_agent.py -i nessus_scan.csv -t samples/template.xlsx -o report.xlsx --only-failed --validate --add-evidence
+python agent.py -i nessus_scan.csv -t samples/template.xlsx -o report.xlsx --only-failed --validate --add-evidence
 ```
 
 ---
@@ -113,7 +113,7 @@ python windows_cis_compliance_ai_agent.py -i nessus_scan.csv -t samples/template
 ### Command-Line Options
 
 ```
-usage: windows_cis_compliance_ai_agent.py [-h] -i INPUT -t TEMPLATE -o OUTPUT
+usage: agent.py [-h] -i INPUT -t TEMPLATE -o OUTPUT
                                           [--sheet SHEET] [--only-failed]
                                           [--validate] [--add-evidence]
                                           [--model MODEL] [--limit LIMIT]
@@ -144,7 +144,7 @@ usage: windows_cis_compliance_ai_agent.py [-h] -i INPUT -t TEMPLATE -o OUTPUT
 
 #### 1. Format Only (No AI) — Free & Fast
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i nessus_scan.csv `
   -t samples/template.xlsx `
   -o report.xlsx `
@@ -153,7 +153,7 @@ python windows_cis_compliance_ai_agent.py `
 
 #### 2. AI Validation — Recommended
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i nessus_scan.csv `
   -t samples/template.xlsx `
   -o report.xlsx `
@@ -164,7 +164,7 @@ python windows_cis_compliance_ai_agent.py `
 
 #### 3. Test with 5 Findings First
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i nessus_scan.csv `
   -t samples/template.xlsx `
   -o test_report.xlsx `
@@ -176,7 +176,7 @@ python windows_cis_compliance_ai_agent.py `
 
 #### 4. Dry Run (Preview Commands Without Executing)
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i nessus_scan.csv `
   -t samples/template.xlsx `
   -o dry_run_report.xlsx `
@@ -187,7 +187,7 @@ python windows_cis_compliance_ai_agent.py `
 
 #### 5. Resume an Interrupted Scan
 ```powershell
-python windows_cis_compliance_ai_agent.py `
+python agent.py `
   -i nessus_scan.csv `
   -t samples/template.xlsx `
   -o report.xlsx `
@@ -256,7 +256,7 @@ The agent includes a built-in knowledge base that maps CIS categories to the cor
 
 ```
 windows-cis-compliance-ai-agent/
-├── windows_cis_compliance_ai_agent.py   # Main agent script
+├── agent.py   # Main agent script
 ├── requirements.txt                      # Python dependencies
 ├── .gitignore                           # Git ignore rules
 ├── LICENSE                              # MIT License
