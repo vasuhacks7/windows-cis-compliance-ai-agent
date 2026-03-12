@@ -1,4 +1,4 @@
-# Windows CIS Compliance AI Agent - Dependencies
+# Windows CIS Compliance AI Agent - all Dependencies
 # Install: pip install -r requirements.txt
 
 openai>=1.0.0
