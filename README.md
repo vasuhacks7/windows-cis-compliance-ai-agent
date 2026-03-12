@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">🤖 Windows CIS Compliance AI Agent</h1>
+  <h1 align="center"> Windows CIS Compliance AI Agent</h1>
   <p align="center">
     <strong>AI-powered CIS Benchmark compliance validation for Windows Server</strong>
   </p>
@@ -14,7 +14,7 @@
 
 ---
 
-## 🎯 What Is This?
+## What Is This?
 
 **Windows CIS Compliance AI Agent** transforms raw Nessus CIS compliance scan data into verified, audit-ready Excel reports. Unlike traditional tools that blindly trust scanner output, this agent **actively validates each finding** by executing read-only PowerShell commands on the target system and using AI to determine true compliance status.
 
@@ -35,29 +35,29 @@
 ## ✨ Features
 
 ### Core Features
-- 📊 **Nessus CSV → Company Excel** — Formats raw scan data into your branded template
-- 🤖 **AI-Powered Validation** — LLM generates and analyzes validation commands
-- ⚡ **PowerShell Execution** — Runs read-only commands to verify each finding
-- 🎨 **Color-Coded Status** — Green (Compliant), Red (Non Compliant), Yellow (Error)
-- 📝 **Evidence Columns** — Optional audit trail with commands, outputs, and reasoning
+- **Nessus CSV → Company Excel** — Formats raw scan data into your branded template
+- **AI-Powered Validation** — LLM generates and analyzes validation commands
+- **PowerShell Execution** — Runs read-only commands to verify each finding
+- **Color-Coded Status** — Green (Compliant), Red (Non Compliant), Yellow (Error)
+- **Evidence Columns** — Optional audit trail with commands, outputs, and reasoning
 
 ### Safety & Reliability
-- 🛡️ **Command Safety Blocklist** — Blocks 40+ dangerous command patterns (no system modifications)
-- 🔄 **Auto-Retry with Backoff** — Handles API failures gracefully
-- 💾 **Checkpoint/Resume** — Resume interrupted scans without re-processing
-- 🎯 **Command Hint System** — Prevents LLM from hallucinating wrong commands
-- 🔀 **Automatic Failback** — Falls back to alternative commands on failure
-- 🔒 **API Key Masking** — Keys are never logged or displayed
+- **Command Safety Blocklist** — Blocks 40+ dangerous command patterns (no system modifications)
+- **Auto-Retry with Backoff** — Handles API failures gracefully
+- **Checkpoint/Resume** — Resume interrupted scans without re-processing
+- **Command Hint System** — Prevents LLM from hallucinating wrong commands
+- **Automatic Failback** — Falls back to alternative commands on failure
+- **API Key Masking** — Keys are never logged or displayed
 
 ### Flexibility
-- 📋 **Dry-Run Mode** — Generate commands without executing them
-- 🔧 **Configurable Benchmark** — Works with any CIS benchmark name
-- 📏 **Range Processing** — Process specific finding ranges with `--skip` and `--limit`
-- 📝 **Structured Logging** — Console + optional file logging
+- **Dry-Run Mode** — Generate commands without executing them
+-  **Configurable Benchmark** — Works with any CIS benchmark name
+-  **Range Processing** — Process specific finding ranges with `--skip` and `--limit`
+-  **Structured Logging** — Console + optional file logging
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -108,7 +108,7 @@ python agent.py -i nessus_scan.csv -t samples/template.xlsx -o report.xlsx --onl
 
 ---
 
-## 📖 Usage
+## Usage
 
 ### Command-Line Options
 
@@ -238,7 +238,7 @@ The agent includes a built-in knowledge base that maps CIS categories to the cor
 
 ---
 
-## 💰 Cost
+## Cost
 
 | Scenario | Time | API Cost |
 |----------|------|----------|
@@ -252,7 +252,7 @@ The agent includes a built-in knowledge base that maps CIS categories to the cor
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 windows-cis-compliance-ai-agent/
@@ -269,7 +269,7 @@ windows-cis-compliance-ai-agent/
 
 ---
 
-## 🔒 Security
+## Security
 
 This tool is designed to be **read-only** and safe for production environments:
 
@@ -298,12 +298,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
